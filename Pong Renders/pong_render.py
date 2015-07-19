@@ -46,6 +46,8 @@ class requestHandler(SocketServer.StreamRequestHandler):
 def read_pong_settings():
     # put in seperate function since it's special. Could have been done easier
     global  boundx, boundsy, right_edge_node, left_edge_node, ip_address
+    # CHARLES Have it read different settings depending on which node you want it to be
+    # right now it just reads settings.txt
     settings = open( 'settings.txt', 'r' )
     line = settings.readline()
     boundsx[0] = int( settings.readline().strip() ) 
@@ -84,6 +86,8 @@ if __name__ == '__main__':
         paddle_index = 2
     else:
         edge_node = False
+    
+    # CHARLES HAve it listen on a different port if it's local host. 
     server=broadcastServer( ( ip_address, 20000 ), requestHandler )
     server.serve_forever()
     while 1:
