@@ -21,6 +21,11 @@ def run():
     #make a socket, and connect to a already running server socket
     # read some file with the ip addresses and put them in the variables ip addersses
     # hard coded for now
+    
+    # CHARLES Edit this to have it run on your local host. Edit the ip_address to be localhost
+    # and have them on seperate ports. So connect would be like 
+    # clisocket[0].connect(("localhost", 20000))
+    # clisocket[1].connect(("localhost", 20001))
     clisocket = [ None, None ]
     ip_addresses = ( '10.10.0.12', '10.10.0.14' )
     for x in range(0,len( clisocket )):
